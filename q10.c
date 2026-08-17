@@ -4,17 +4,14 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-void permutation(char str[], int start, int end)
-{
+void permutation(char str[], int start, int end){
     int i;
     char temp;
-    if (start == end)
-    {
+    if (start == end){
         printf("%s\n", str);
         return;
     }
-    for (i = start; i <= end; i++)
-    {
+    for (i = start; i <= end; i++){
         temp = str[start];
         str[start] = str[i];
         str[i] = temp;
@@ -25,34 +22,25 @@ void permutation(char str[], int start, int end)
     }
 }
 
-int main()
-{
+int main(){
     char str[100];
     int n = 0;
     pid_t pid = fork();
-    if (pid < 0)
-    {
+    if (pid < 0){
         printf("Fork Failed!\n");
         return 1;
     }
-    if (pid == 0)
-    {
-
+    if (pid == 0){
         printf("Enter a string: ");
         scanf("%s", str);
-
-        while (str[n] != '\0')
-        {
+        while (str[n]!='\0'){
             n++;
         }
-
         printf("\nChild Process\n");
         printf("Permutations:\n");
-
         permutation(str, 0, n - 1);
     }
-    else
-    {
+    else{
         wait(NULL);
         printf("\nParent Process\n");
         printf("Child process completed.\n");
