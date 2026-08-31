@@ -15,8 +15,8 @@ int isPrime(int n){
 }
 
 int main(){
-    int arr[] = {2, 4, 6, 8, 11};
-    int n = 5;
+    int arr[] = {13};
+    int n = 1;
     int sum = 0;
     pid_t pid = fork();
     if (pid < 0){
