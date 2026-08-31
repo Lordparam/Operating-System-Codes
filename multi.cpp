@@ -53,31 +53,22 @@ int main(){
         cout<<"\nLEVEL "<<level<<"  TQ = "<<tq<<endl;
 
         for(int i=0;i<size;i++){
-
             int ft=queue.front();
             queue.erase(queue.begin());
-
             int execute=tq;
-
             if(remaining[ft]<tq){
                 execute=remaining[ft]; // if remaining time quanta is less than tq
             }
-
             cout<<"P"<<ft<<" : "
                 <<currentTime<<" - "
                 <<currentTime+execute<<endl;
-
             currentTime=currentTime+execute;
-
             remaining[ft]=remaining[ft]-execute;
-
             if(remaining[ft]>0){
                 nextQueue.push_back(ft);
             }
         }
-
         queue=nextQueue;
-
         tq=tq*2;
     }
     //FCFS now
