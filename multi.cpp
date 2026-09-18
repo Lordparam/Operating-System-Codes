@@ -71,6 +71,7 @@ int main(){
         queue=nextQueue;
         tq=tq*2;
     }
+    cout << "FCFS\n";
     //FCFS now
     while(queue.size()!=0){
     int ft=queue.front();
