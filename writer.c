@@ -5,21 +5,18 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int main(void)
-{
+int main(void){
     int fd;
     char message[] = "Hello from Writer!";
-    if (mkfifo("myfifo", 0666) == -1)
-    {
+    if (mkfifo("myfifo", 0666) == -1){
         perror("mkfifo");
-        if (access("myfifo", F_OK) == -1)
-        {
+        if (access("myfifo", F_OK) == -1){
             return EXIT_FAILURE;
         }
     }
+
     fd = open("myfifo", O_WRONLY);
-    if (fd == -1)
-    {
+    if (fd == -1){
         perror("open");
         return EXIT_FAILURE;
     }
